@@ -1,6 +1,9 @@
 import { useState, type FragmentProps } from "react";
 import {
+  AlertCircleIcon,
   CheckCircleIcon,
+  CheckIcon,
+  CopyIcon,
   EyeIcon,
   LanguagesIcon,
   XCircleIcon
@@ -16,6 +19,19 @@ import {
   ButtonGroupSeparator
 } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
+import useCopyToClipboard from "@/hooks/useCopyToClipboard";
+
+const copyTitleMap = {
+  idle: "Copy transcript",
+  copied: "Transcript copied",
+  error: "Failed to copy transcript"
+} as const;
+
+const copyIconMap = {
+  idle: <CopyIcon />,
+  copied: <CheckIcon />,
+  error: <AlertCircleIcon />
+} as const;
 
 const Transcript = ({
   children,
@@ -28,8 +44,11 @@ const Transcript = ({
   onIncorrect: () => void;
 }) => {
   const [isShown, setIsShown] = useState(false);
+  const { state, copy } = useCopyToClipboard();
 
   const handleShowTranscript = () => setIsShown(true);
+
+  const handleCopy = () => copy(children as string);
 
   if (!isShown) {
     return (
@@ -53,6 +72,15 @@ const Transcript = ({
           </ItemTitle>
         </ItemContent>
         <ItemActions>
+          <Button
+            variant="outline"
+            className="size-8"
+            title={copyTitleMap[state]}
+            aria-label={copyTitleMap[state]}
+            onClick={handleCopy}
+          >
+            {copyIconMap[state]}
+          </Button>
           <Button
             variant="outline"
             className="size-8"
