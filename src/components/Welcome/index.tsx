@@ -1,4 +1,4 @@
-import { useState, type FragmentProps } from "react";
+import { type FragmentProps } from "react";
 import { SparklesIcon } from "lucide-react";
 import {
   Dialog,
@@ -13,26 +13,18 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Logo from "@/components/Logo";
 import List from "@/components/Welcome/List";
 import Item from "@/components/Welcome/Item";
-import Turnstile from "@/components/Turnstile";
 import useWelcomeStorage from "@/hooks/useWelcomeStorage";
 
 const Welcome = ({ children }: FragmentProps) => {
-  const [canStart, setCanStart] = useState(false);
   const { shown, hide } = useWelcomeStorage();
-
-  const start = () => {
-    if (canStart) {
-      hide();
-    }
-  };
 
   if (!shown) {
     return children;
   }
 
   return (
-    <Dialog open onOpenChange={start}>
-      <DialogContent showCloseButton={canStart}>
+    <Dialog open onOpenChange={hide}>
+      <DialogContent showCloseButton>
         <DialogHeader>
           <DialogTitle>
             <Logo>Welcome to Englitune!</Logo>
@@ -65,9 +57,8 @@ const Welcome = ({ children }: FragmentProps) => {
             </List>
           </AlertDescription>
         </Alert>
-        <Turnstile onVerify={setCanStart} />
         <DialogFooter>
-          <Button className="w-full" disabled={!canStart} onClick={start}>
+          <Button className="w-full" onClick={hide}>
             <SparklesIcon size={16} />
             Let's start learning!
           </Button>

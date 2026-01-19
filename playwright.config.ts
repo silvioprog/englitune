@@ -1,5 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
-import { apiUrls, audioUrls, turnstileSiteKeys } from "./env.config";
+import { apiUrls, audioUrls } from "./env.config";
 
 export default defineConfig({
   testDir: "./e2e",
@@ -12,7 +12,6 @@ export default defineConfig({
     port: 5173,
     reuseExistingServer: !process.env.CI,
     env: {
-      VITE_TURNSTILE_SITE_KEY: turnstileSiteKeys.development,
       VITE_API_URL: apiUrls.development,
       VITE_AUDIO_URL: audioUrls.development
     }
