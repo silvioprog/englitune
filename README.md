@@ -70,7 +70,6 @@ npm run dev
 - `npm run test` - Run unit tests
 - `npm run coverage` - Run unit tests with coverage
 - `npm run e2e` - Run E2E tests
-- `npm run deploy` - Deploy to Cloudflare Workers
 
 ## License
 

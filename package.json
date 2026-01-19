@@ -15,7 +15,6 @@
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "e2e": "playwright test",
-    "deploy": "wrangler deploy --minify",
     "generate-pwa-icons": "pwa-assets-generator",
     "prepare": "husky"
   },
@@ -71,7 +70,6 @@
     "vite": "^7.3.1",
     "vite-plugin-beasties": "^0.3.5",
     "vite-plugin-pwa": "^1.2.0",
-    "vitest": "^4.0.16",
-    "wrangler": "^4.58.0"
+    "vitest": "^4.0.16"
   }
 }
