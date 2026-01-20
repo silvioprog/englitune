@@ -41,13 +41,13 @@ For more information on spaced repetition, see the [Wikipedia article on spaced 
 
 ## Tech Stack
 
-- React 19 + TypeScript
-- Vite
-- TanStack Query
-- Tailwind CSS
-- Radix UI
-- Cloudflare Workers (deployment)
-- PWA support
+- [React 19](https://react.dev) + [TypeScript](https://typescriptlang.org)
+- [Vite](https://vite.dev)
+- [TanStack Query](https://tanstack.com/query)
+- [Tailwind CSS](https://tailwindcss.com)
+- [shadcn/ui](https://ui.shadcn.com)
+- [Cloudflare Workers](https://workers.cloudflare.com) (deployment)
+- [PWA](https://developer.mozilla.org/docs/Web/Progressive_web_apps) support
 
 ## Getting Started
 
