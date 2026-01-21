@@ -5,6 +5,7 @@ import { displayName, description } from "../package.json";
 const pwa = () =>
   VitePWA({
     registerType: "autoUpdate",
+    injectRegister: "script-defer",
     manifestFilename: "manifest.webmanifest",
     manifest: {
       id: "/",
