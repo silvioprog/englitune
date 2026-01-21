@@ -11,3 +11,8 @@ export const audioUrls: EnvironmentConfig<string> = {
   development: "https://englitune-audio.silvioprog.dev", // We don't have an audio server for development
   production: "https://englitune-audio.silvioprog.dev"
 } as const;
+
+export const cloudflareInsightsUrls: EnvironmentConfig<string> = {
+  development: "https://static.cloudflareinsights.com",
+  production: "https://static.cloudflareinsights.com"
+} as const;
