@@ -7,7 +7,7 @@ import Insights from "@/components/Insights";
 import Content from "@/components/App/Content";
 import Study from "@/components/Study";
 import Footer from "@/components/App/Footer";
-import { Toggle as ThemeToggle } from "@/components/Theme";
+import ThemeToggle from "@/components/Theme/Toggle";
 import useForceUpdate from "@/hooks/useForceUpdate";
 
 const App = () => {

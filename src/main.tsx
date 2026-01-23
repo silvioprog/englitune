@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Toaster } from "@/components/ui/sonner";
-import { Provider as ThemeProvider } from "@/components/Theme";
+import ThemeProvider from "@/components/Theme/Provider";
 import Welcome from "@/components/Welcome";
 import App from "@/components/App";
 import QueryProvider from "@/lib/queryProvider";
