@@ -9,11 +9,13 @@ import { getLearning, getMastered } from "@/lib/studyUtils";
 const Tabs = ({
   studies,
   due,
+  onImport,
   className,
   ...props
 }: ComponentProps<typeof TabsComponent> & {
   studies: Study[];
   due: Study[];
+  onImport: (studies: Study[]) => void;
 }) => {
   const learning = getLearning(studies);
   const mastered = getMastered(studies);
@@ -30,6 +32,7 @@ const Tabs = ({
         due={due}
         learning={learning}
         mastered={mastered}
+        onImport={onImport}
       />
     </TabsComponent>
   );

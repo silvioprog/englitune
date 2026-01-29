@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/empty";
 import { Badge } from "@/components/ui/badge";
 import LetsStudy from "@/components/LetsStudy";
+import DataActions from "@/components/Insights/DataActions";
 import type { Study } from "@/lib/types";
 import { formatNumber } from "@/lib/utils";
 
@@ -19,12 +20,14 @@ const Statistics = ({
   learning,
   mastered,
   studies,
+  onImport,
   ...props
 }: Omit<ComponentProps<typeof TabsContent>, "value"> & {
   due: Study[];
   learning: Study[];
   mastered: Study[];
   studies: Study[];
+  onImport: (studies: Study[]) => void;
 }) => {
   const stats = [
     {
@@ -75,29 +78,32 @@ const Statistics = ({
           </EmptyContent>
         </Empty>
       ) : (
-        <div className="grid grid-cols-2 gap-3">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center space-y-2 border rounded-lg p-3"
-            >
-              <Badge
-                variant={stat.variant}
-                className="flex items-center justify-center gap-2 w-full py-3"
+        <div className="space-y-3">
+          <div className="grid grid-cols-2 gap-3">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="text-center space-y-2 border rounded-lg p-3"
               >
-                <stat.icon className="size-5!" />
-                <span className="font-bold text-xl">
-                  {formatNumber(stat.value)}
-                </span>
-              </Badge>
-              <div>
-                <p className="text-sm font-medium">{stat.label}</p>
-                <p className="text-xs text-muted-foreground">
-                  {stat.description}
-                </p>
+                <Badge
+                  variant={stat.variant}
+                  className="flex items-center justify-center gap-2 w-full py-3"
+                >
+                  <stat.icon className="size-5!" />
+                  <span className="font-bold text-xl">
+                    {formatNumber(stat.value)}
+                  </span>
+                </Badge>
+                <div>
+                  <p className="text-sm font-medium">{stat.label}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {stat.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <DataActions studies={studies} onImport={onImport} />
         </div>
       )}
     </TabsContent>
