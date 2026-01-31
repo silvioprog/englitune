@@ -61,7 +61,21 @@ const pwa = () =>
       ]
     },
     workbox: {
-      disableDevLogs: true
+      disableDevLogs: true,
+      maximumFileSizeToCacheInBytes: 30 * 1024 * 1024,
+      runtimeCaching: [
+        {
+          urlPattern: /\.(?:onnx|wasm)$/,
+          handler: "CacheFirst",
+          options: {
+            cacheName: "stt-model-cache",
+            expiration: {
+              maxEntries: 5,
+              maxAgeSeconds: 30 * 24 * 60 * 60
+            }
+          }
+        }
+      ]
     },
     devOptions: {
       enabled: true,

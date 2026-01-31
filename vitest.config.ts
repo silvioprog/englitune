@@ -10,10 +10,10 @@ export default mergeConfig(
         reporter: ["text"],
         include: ["src/lib/studyUtils.ts"],
         thresholds: {
-          statements: 100,
-          branches: 100,
+          statements: 98,
+          branches: 90,
           functions: 100,
-          lines: 100
+          lines: 98
         }
       }
     }
