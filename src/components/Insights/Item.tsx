@@ -1,5 +1,6 @@
 import type { ComponentProps } from "react";
 import { ClockIcon, XIcon } from "lucide-react";
+import CalendarButton from "@/components/Insights/CalendarButton";
 import {
   Item as ItemComponent,
   ItemContent,
@@ -34,6 +35,7 @@ const Item = ({
           <span>{study.incorrect}</span>
         </Badge>
       )}
+      {!isMastered(study) && <CalendarButton reviewDate={study.review} />}
     </ItemFooter>
   </ItemComponent>
 );
