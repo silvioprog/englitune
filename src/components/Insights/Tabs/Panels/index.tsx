@@ -10,6 +10,7 @@ const Panels = ({
   due,
   learning,
   mastered,
+  onImport,
   className,
   ...props
 }: ComponentProps<"div"> & {
@@ -17,6 +18,7 @@ const Panels = ({
   learning: Study[];
   mastered: Study[];
   studies: Study[];
+  onImport: (studies: Study[]) => void;
 }) => (
   <div className={cn("overflow-auto", className)} {...props}>
     <Statistics
@@ -24,6 +26,7 @@ const Panels = ({
       learning={learning}
       mastered={mastered}
       studies={studies}
+      onImport={onImport}
     />
     <Learning due={due} learning={learning} />
     <Mastered mastered={mastered} />
