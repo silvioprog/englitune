@@ -9,6 +9,7 @@ import Header from "@/components/Study/Header";
 import Audio from "@/components/Audio";
 import Info from "@/components/Study/Info";
 import Transcript from "@/components/Study/Transcript";
+import SpeakComingSoon from "@/components/Study/SpeakComingSoon";
 import { getAudioUrl, translate } from "@/lib/utils";
 import useStudy from "@/hooks/useStudy";
 import useReviews from "@/hooks/useReviews";
@@ -71,6 +72,7 @@ const Study = () => {
           {entry.transcript}
         </Transcript>
       )}
+      <SpeakComingSoon />
     </Container>
   );
 };
