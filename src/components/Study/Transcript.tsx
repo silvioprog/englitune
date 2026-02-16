@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
+import SpeakingPractice from "@/components/Study/SpeakingPractice";
 
 const copyTitleMap = {
   idle: "Copy transcript",
@@ -92,6 +93,7 @@ const Transcript = ({
           </Button>
         </ItemActions>
       </Item>
+      <SpeakingPractice transcript={children as string} />
       <ButtonGroup>
         <Button variant="destructive" onClick={onIncorrect}>
           <XCircleIcon />

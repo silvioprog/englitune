@@ -5,10 +5,12 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
+      environment: "jsdom",
+      setupFiles: ["./src/test-setup.ts"],
       exclude: [...configDefaults.exclude, "e2e"],
       coverage: {
         reporter: ["text"],
-        include: ["src/lib/studyUtils.ts"],
+        include: ["src/lib/studyUtils.ts", "src/lib/speechUtils.ts"],
         thresholds: {
           statements: 100,
           branches: 100,

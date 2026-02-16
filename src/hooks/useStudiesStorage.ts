@@ -32,7 +32,9 @@ const useStudiesStorage = () => {
       updateAll({ studies: prevStudies, entry, understood })
     );
 
-  return { studies, initialize, save };
+  const replace = (newStudies: Study[]) => setStudies(newStudies);
+
+  return { studies, initialize, save, replace };
 };
 
 export default useStudiesStorage;

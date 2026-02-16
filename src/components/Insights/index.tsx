@@ -4,13 +4,13 @@ import { getDue } from "@/lib/studyUtils";
 import useStudiesStorage from "@/hooks/useStudiesStorage";
 
 const Insights = () => {
-  const { studies } = useStudiesStorage();
+  const { studies, replace } = useStudiesStorage();
 
   const due = getDue(studies);
 
   return (
     <Drawer due={due}>
-      <Tabs studies={studies} due={due} />
+      <Tabs studies={studies} due={due} onImport={replace} />
     </Drawer>
   );
 };
